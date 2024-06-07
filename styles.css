@@ -1,0 +1,65 @@
+/* Basic styles for the dropdown */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.dropdown {
+    position: relative;
+     /* This sets the position of the dropdown element relative to its normal position. 
+    It allows the absolutely positioned dropdown content to be positioned relative to this element. */
+    display: inline-block;
+    /* Unlike display: inline;, 
+    which doesn't allow width and height adjustments, 
+    inline-block lets you apply block-level styles 
+    such as width, height, and vertical padding/margin. */
+
+    /* This makes the dropdown behave like an inline element for layout purposes, 
+    but it can still accept block-level styling (width, height, and margins/paddings) 
+    without the element breaking into a new line like a block-level element would. */
+    margin: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* When you set position: absolute; on an element, 
+    it is positioned relative to its nearest positioned ancestor 
+    (an ancestor with position set to relative, absolute, fixed, or sticky). 
+    In this case, the nearest positioned ancestor is the .dropdown element.
+    */
+    z-index: 1; /* This sets the stack order of the dropdown content. 
+    A higher z-index value means the element will be in front of elements with a lower z-index value. 
+    This ensures the dropdown content appears above other content. */
+    min-width: 50px; /*The content will NOT be narrower than this width, but it can expand wider if needed. */
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* 
+    0px: Horizontal offset (no offset).
+    8px: Vertical offset (shadow is 8 pixels below the element).
+    16px: Blur radius (softness of the shadow).
+    0px: Spread radius (size of the shadow).
+    rgba(0,0,0,0.2): Color of the shadow (a semi-transparent black with 20% opacity). 
+    */
+}
+
+.dropdown-content a {
+    display: block; /* By default, <a> elements are inline elements. 
+    Inline elements only take up as much width as their content requires, 
+    and you can't set width, height, or vertical padding/margin on them. */
+
+    /* Setting display: block; changes the <a> elements to block-level elements. 
+    This means they will take up the full width of their parent container (.dropdown-content), making them easier to click. 
+    This also allows you to apply padding, width, and height. */
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when the dropdown is active */
+.dropdown .visible {
+    display: block;
+}
